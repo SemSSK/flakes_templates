@@ -7,7 +7,7 @@ A bunch of projects Nix flakes a use commonly
   nix flake init -t github:semssk/flakes_templates#<name of template>
 
   # Creating a new folder with the flake
-  nix flake new <name_of_folder> -t github:semssk/flakes_templates#rust<name of template>
+  nix flake new <name_of_folder> -t github:semssk/flakes_templates#<name of template>
 
 ````
 # List of templates
