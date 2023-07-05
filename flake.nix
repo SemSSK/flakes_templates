@@ -8,6 +8,12 @@
         '';
         path = ./rustDefaultProject;
       };
+      egui = {
+        description = ''
+          declares basic stuff needed in an egui based rust project
+        '';
+        path = ./rustEguiProject;
+      };
     };
   };
 }
