@@ -20,6 +20,7 @@
             pkg-config
             rust-bin.stable.latest.default
             udev
+            mold
           ];
           RUST_SRC_PATH = rustPlatform.rustLibSrc;
         };
