@@ -30,6 +30,7 @@
             rust-bin.stable.latest.default
             bacon
             udev
+            mold
           ];
           RUST_SRC_PATH = rustPlatform.rustLibSrc;
           LD_LIBRARY_PATH = libPath;
