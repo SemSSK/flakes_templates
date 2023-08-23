@@ -13,3 +13,4 @@ A bunch of projects Nix flakes a use commonly
 # List of templates
 * rust : Basic rust project
 * egui : Native Desktop application using egui 
+* cpp  : Basic c++ project
