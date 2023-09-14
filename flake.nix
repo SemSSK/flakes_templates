@@ -20,6 +20,18 @@
         '';
         path = ./rustEguiProject;
       };
+      tauri = {
+        description = ''
+          declares basic stuff needed in an tauri based rust project
+        '';
+        path = ./rustTauriProject;
+      };
+      fltk = {
+        description = ''
+          declares basic stuff needed in an fltk based rust project
+        '';
+        path = ./rustFltkProject;
+      };
     };
   };
 }

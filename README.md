@@ -13,4 +13,6 @@ A bunch of projects Nix flakes a use commonly
 # List of templates
 * rust : Basic rust project
 * egui : Native Desktop application using egui 
+* fltk : Native Desktop application using fltk
+* tauri : Web based application with tauri
 * cpp  : Basic c++ project
