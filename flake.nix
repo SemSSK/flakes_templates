@@ -16,21 +16,27 @@
       };
       egui = {
         description = ''
-          declares basic stuff needed in an egui based rust project
+          declares basic stuff needed in an egui using rust project
         '';
         path = ./rustEguiProject;
       };
       tauri = {
         description = ''
-          declares basic stuff needed in an tauri based rust project
+          declares basic stuff needed in an tauri using rust project
         '';
         path = ./rustTauriProject;
       };
       fltk = {
         description = ''
-          declares basic stuff needed in an fltk based rust project
+          declares basic stuff needed in an fltk using rust project
         '';
         path = ./rustFltkProject;
+      };
+      tuiCursive = {
+        description = ''
+          declares basic stuff needed in an tui using rust and ncurses project
+        '';
+        path = ./rustTuiCursiveProject;
       };
     };
   };
