@@ -20,6 +20,7 @@
             ninja
             clang-tools
             gcc
+            just
           ];
         };
       };

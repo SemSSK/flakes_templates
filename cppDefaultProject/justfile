@@ -1,4 +1,4 @@
-exe := app
+exe := "app"
 
 configure:
 	cmake -S . -B ./build -D CMAKE_BUILD_TYPE=Debug
