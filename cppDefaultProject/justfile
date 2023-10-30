@@ -1,0 +1,11 @@
+exe := app
+
+configure:
+	cmake -S . -B ./build -D CMAKE_BUILD_TYPE=Debug
+build:
+	cmake --build ./build/.
+release:
+	cmake -S . -B ./release -D CMAKE_BUILD_TYPE=Debug
+	cmake --build ./release/.
+run:
+	./build/{{exe}}
