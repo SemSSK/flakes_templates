@@ -1,5 +1,9 @@
 exe := "app"
 
+alias b := build
+alias r := run
+alias br := buildrun
+
 configure:
 	cmake -S . -B ./build -D CMAKE_BUILD_TYPE=Debug
 build:
@@ -9,3 +13,5 @@ release:
 	cmake --build ./release/.
 run:
 	./build/{{exe}}
+
+buildrun: build run
