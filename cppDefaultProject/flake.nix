@@ -14,13 +14,14 @@
         default = pkgs.mkShell {
           name = "cpp Shell";
           buildInputs = with pkgs;[
+            just
             pkg-config
             cmake
             cmake-language-server
             ninja
             clang-tools
             gcc
-            just
+            watchexec
           ];
         };
       };

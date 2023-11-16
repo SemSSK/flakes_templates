@@ -1,17 +1,23 @@
-exe := "app"
-
-alias b := build
-alias r := run
-alias br := buildrun
+default:
+	just --list
 
 configure:
 	cmake -S . -B ./build -D CMAKE_BUILD_TYPE=Debug
+	cmake --build ./build/
+
 build:
-	cmake --build ./build/.
+	cmake --build ./build/
+
 release:
-	cmake -S . -B ./release -D CMAKE_BUILD_TYPE=Debug
+	cmake -S . -B ./release -D CMAKE_BUILD_TYPE=Release
 	cmake --build ./release/.
 run:
-	./build/{{exe}}
+	./build/app
 
-buildrun: build run
+clean:
+	rm -rf ./build
+
+watch:
+	watchexec -w CMakeLists.txt just configure &
+	watchexec -e cpp,cxx,c,hpp,hxx,h just build
+	
