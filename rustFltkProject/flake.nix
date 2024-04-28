@@ -11,6 +11,11 @@
         overlays = [(import rust-overlay)];
         pkgs = import nixpkgs { inherit system overlays; };
         naersk-lib = pkgs.callPackage naersk { };
+        rust = pkgs.rust-bin.stable.latest.default.override {
+                extensions = [
+                  "rust-analyzer"
+                ];
+              };
         libraries = with pkgs; [
           fltk
           pango
@@ -35,7 +40,7 @@
         devShell = with pkgs; mkShell {
           buildInputs = [
             pkg-config
-            rust-bin.stable.latest.default
+            rust
             udev
             mold
             gcc

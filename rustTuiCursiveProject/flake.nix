@@ -11,6 +11,11 @@
       let
         overlays = [(import rust-overlay)];
         pkgs = import nixpkgs { inherit system overlays; };
+        rust = pkgs.rust-bin.stable.latest.default.override {
+                extensions = [
+                  "rust-analyzer"
+                ];
+              };
         naersk-lib = pkgs.callPackage naersk { };
         libPath = pkgs.lib.makeLibraryPath (with pkgs; [
           ncurses
@@ -21,7 +26,7 @@
         devShell = with pkgs; mkShell {
           buildInputs = [
             pkg-config
-            rust-bin.stable.latest.default
+            rust
             udev
             mold
           ];

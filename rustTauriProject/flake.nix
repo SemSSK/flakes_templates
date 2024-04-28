@@ -12,7 +12,11 @@
         overlays = [(import rust-overlay)];
         pkgs = import nixpkgs { inherit system overlays; };
         naerskLib = pkgs.callPackage naersk {};
-
+        rust = pkgs.rust-bin.stable.latest.default.override {
+                extensions = [
+                  "rust-analyzer"
+                ];
+              };
         libraries = with pkgs;[
           webkitgtk
           gtk3
@@ -46,7 +50,7 @@
       {
         devShell = with pkgs; mkShell {
           buildInputs = [
-            rust-bin.stable.latest.default
+            rust
             cargo-tauri
             udev
             mold
