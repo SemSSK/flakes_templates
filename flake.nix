@@ -2,6 +2,12 @@
   description = "Simple and personal template for Rust projects";
   outputs = { self, ... }: {
     templates = {
+      haskell = {
+        description = ''
+          declares basic stuff needed in a barebone haskell project
+        '';
+        path = ./haskellDefaultProject;
+      };
       rust = {
         description = ''
           declares basic stuff needed in a barebone rust project
