@@ -6,7 +6,7 @@
         description = ''
           declares basic stuff needed in a barebone haskell project
         '';
-        path = ./haskellDefaultProject;
+        path = ./haskellMinimalProject;
       };
       rust = {
         description = ''
