@@ -46,14 +46,14 @@
 
       in
       {
-        devShell = with pkgs; mkShell {
+        devShell = pkgs.mkShell {
           buildInputs = [
             rust
-            cargo-tauri
-            udev
-            mold
+            pkgs.cargo-tauri
+            pkgs.udev
+            pkgs.mold
           ] ++ packages;
-          RUST_SRC_PATH = rustPlatform.rustLibSrc;
+          RUST_SRC_PATH = pkgs.rustPlatform.rustLibSrc;
           
           shellHook =
             ''

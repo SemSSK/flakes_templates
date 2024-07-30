@@ -34,16 +34,16 @@
         libPath = pkgs.lib.makeLibraryPath libraries;
       in
       {
-        devShell = with pkgs; mkShell {
+        devShell =  pkgs.mkShell {
           buildInputs = [
-            pkg-config
             rust
-            udev
-            mold
-            gcc
-            cmake
+            pkgs.pkg-config
+            pkgs.udev
+            pkgs.mold
+            pkgs.gcc
+            pkgs.cmake
           ];
-          RUST_SRC_PATH = rustPlatform.rustLibSrc;
+          RUST_SRC_PATH = pkgs.rustPlatform.rustLibSrc;
           LD_LIBRARY_PATH = libPath;
         };
       });

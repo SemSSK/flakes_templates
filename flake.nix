@@ -2,6 +2,12 @@
   description = "Simple and personal template for Rust projects";
   outputs = { self, ... }: {
     templates = {
+      default = {
+        description = ''
+          declares a nix flake that uses flake-utils to abstract the system
+        '';
+        path = ./defaultProject;      
+      };
       haskell = {
         description = ''
           declares basic stuff needed in a barebone haskell project

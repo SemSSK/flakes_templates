@@ -26,15 +26,15 @@
         ]);
       in
       {
-        devShell = with pkgs; mkShell {
+        devShell = pkgs.mkShell {
           buildInputs = [
-            pkg-config
             rust
-            bacon
-            udev
-            mold
+            pkgs.pkg-config
+            pkgs.bacon
+            pkgs.udev
+            pkgs.mold
           ];
-          RUST_SRC_PATH = rustPlatform.rustLibSrc;
+          RUST_SRC_PATH = pkgs.rustPlatform.rustLibSrc;
           LD_LIBRARY_PATH = libPath;
         };
       });
