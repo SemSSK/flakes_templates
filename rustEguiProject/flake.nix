@@ -2,19 +2,12 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     utils.url = "github:numtide/flake-utils";
-    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  outputs = { self, nixpkgs, utils, rust-overlay }:
+  outputs = { self, nixpkgs, utils }:
     utils.lib.eachDefaultSystem (system:
       let
-        overlays = [(import rust-overlay)];
-        pkgs = import nixpkgs { inherit system overlays; };
-        rust = pkgs.rust-bin.stable.latest.default.override {
-                extensions = [
-                  "rust-analyzer"
-                ];
-              };
+        pkgs = import nixpkgs { inherit system ; };
         libPath = pkgs.lib.makeLibraryPath (with pkgs; [
           libGL
           libxkbcommon
@@ -28,13 +21,11 @@
       {
         devShell = pkgs.mkShell {
           buildInputs = [
-            rust
             pkgs.pkg-config
-            pkgs.bacon
             pkgs.udev
             pkgs.mold
+            pkgs.rustup
           ];
-          RUST_SRC_PATH = pkgs.rustPlatform.rustLibSrc;
           LD_LIBRARY_PATH = libPath;
         };
       });
